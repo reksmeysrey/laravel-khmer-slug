@@ -11,14 +11,15 @@ class KhmerSlug
      */
     public function slug(string $str, string $separator = '-')
     {
-        $str = trim(str_replace("'", "", $str));
+        $str = trim(str_replace("'", '', $str));
         $pythonSting = (new LaravelPython())
-            ->run(__DIR__ . "/khmer-nltk/index.py", ["'$str'", $separator]);
+            ->run(__DIR__.'/khmer-nltk/index.py', ["'$str'", $separator]);
+
         return collect(json_decode($pythonSting, true, 512, JSON_THROW_ON_ERROR))
-            ->filter(function ($str){
+            ->filter(function ($str) {
                 return ! in_array($str, ['', ' ']);
             })
-            ->map(function ($str){
+            ->map(function ($str) {
                 return filter_var($str, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             })->implode('-');
     }

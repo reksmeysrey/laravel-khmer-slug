@@ -2,9 +2,9 @@
 
 namespace Reaksmey\KhmerSlug;
 
+use Reaksmey\KhmerSlug\Commands\KhmerSlugCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Reaksmey\KhmerSlug\Commands\KhmerSlugCommand;
 
 class KhmerSlugServiceProvider extends PackageServiceProvider
 {
