@@ -1,33 +1,16 @@
 # This is my package laravel-khmer-slug
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/reaksmey/laravel-khmer-slug.svg?style=flat-square)](https://packagist.org/packages/reaksmey/laravel-khmer-slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/reaksmey/laravel-khmer-slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/reaksmey/laravel-khmer-slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/reaksmey/laravel-khmer-slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/reaksmey/laravel-khmer-slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/reaksmey/laravel-khmer-slug.svg?style=flat-square)](https://packagist.org/packages/reaksmey/laravel-khmer-slug)
+> This package is in development.
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-khmer-slug.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-khmer-slug)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This is use for simple slug and make url friendly for khmer charter. This package inspire by [khmer-nltk](https://github.com/VietHoang1512/khmer-nltk)
 
 ## Installation
+> You have to install and configure [bhavingajjar/laravel-python](https://github.com/bhavingajjar/laravel-python) package first before  continue.
 
 You can install the package via composer:
 
 ```bash
 composer require reaksmey/laravel-khmer-slug
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-khmer-slug-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -36,24 +19,15 @@ You can publish the config file with:
 php artisan vendor:publish --tag="laravel-khmer-slug-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-khmer-slug-views"
-```
-
 ## Usage
 
 ```php
-$khmerSlug = new Reaksmey\KhmerSlug();
-echo $khmerSlug->echoPhrase('Hello, Reaksmey!');
+use Reaksmey\KhmerSlug\Facades\KhmerSlug;
+
+$raw_text = "ស្មារតីផ្សះផ្សាជាតិរវាងខ្មែរនិងខ្មែរ ឈានទៅបញ្ចប់សង្រ្គាម នាំពន្លឺសន្តិភាព និងការរួបរួមជាថ្មី";
+KhmerSlug::slug($raw_text);
+
+==> "ស្មារតី-ផ្សះផ្សា-ជាតិ-រវាង-ខ្មែរ-និង-ខ្មែរ-ឈាន-ទៅ-បញ្ចប់-សង្រ្គាម-នាំ-ពន្លឺ-សន្តិភាព-និង-ការរួបរួម-ជាថ្មី"
 ```
 
 ## Testing
